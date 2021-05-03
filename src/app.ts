@@ -47,11 +47,11 @@ const arrayData = [
   },
 ]
 
-const dateTest: Date = new Date("03/05/2021");
-const data: Array<TemperatureReading> = [];
+const dateTest: Date = new Date("03/05/2021")
+const data: Array<TemperatureReading> = []
 
 function processReadings(readings: TemperatureReading[]): void {
-  data.push(...readings);
+  data.push(...readings)
 }
 
 function sorterTemperature(
@@ -99,8 +99,8 @@ function getTemperatureSummary(date: Date, city: string): void {
   null
 }
 
-processReadings(arrayData);
-getTemperatureSummary(dateTest, "California");
+processReadings(arrayData)
+getTemperatureSummary(dateTest, "California")
 
 exports.processReadings = processReadings
 exports.getTemperatureSummary = getTemperatureSummary
