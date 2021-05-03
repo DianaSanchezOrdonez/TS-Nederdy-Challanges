@@ -42,12 +42,12 @@ const example = [
   },
   {
     time: new Date("03/05/2021"),
-    temperature: 7,
+    temperature: 7.78,
     city: "California",
   },
 ]
 
-const dateTest = new Date("1/1/2021")
+const dateTest = new Date("03/05/2021")
 
 function processReadings(readings: TemperatureReading[]): void {
   readings.forEach((reading) => reading)
@@ -61,7 +61,6 @@ function sorterTemperature(
   readings: TemperatureReading[],
 ): TemperatureReading[] {
   const sorterArray = readings.sort((a, b) => a.temperature - b.temperature)
-  // sorterArray.length >= 2 ? sorterArray.slice(0, 1).concat(sorterArray.slice(-1))
   return sorterArray.slice(0, 1).concat(sorterArray.slice(-1))
 }
 
@@ -78,7 +77,7 @@ function getTemperatureSummary(date: Date, city: string): void {
       data.city === city,
   )
 
-  if (filterData.length ) {
+  if (filterData.length) {
     console.log(`   TEMPERATURE SUMMARY ${filterData[0].city.toUpperCase()} - ${format(
       filterData[0].time,
       "dd/MM/yyyy",
@@ -103,7 +102,7 @@ function getTemperatureSummary(date: Date, city: string): void {
   null
 }
 
-getTemperatureSummary(dateTest, "Utah")
+getTemperatureSummary(dateTest, "California")
 
 exports.processReadings = processReadings
 exports.getTemperatureSummary = getTemperatureSummary

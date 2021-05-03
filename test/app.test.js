@@ -1,7 +1,4 @@
-const {
-  processReadings,
-  getTemperatureSummary,
-} = require("../dist/app")
+const { processReadings, getTemperatureSummary } = require("../dist/app")
 
 const dateTest = new Date("1/1/2021")
 
