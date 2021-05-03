@@ -14,7 +14,7 @@ interface TemperatureSummary {
   average: number
 }
 
-const example = [
+const arrayData = [
   {
     time: new Date("03/05/2021"),
     temperature: 10,
@@ -47,14 +47,11 @@ const example = [
   },
 ]
 
-const dateTest = new Date("03/05/2021")
+const dateTest: Date = new Date("03/05/2021");
+const data: Array<TemperatureReading> = [];
 
 function processReadings(readings: TemperatureReading[]): void {
-  readings.forEach((reading) => reading)
-}
-
-function getData(readings: TemperatureReading[]): TemperatureReading[] {
-  return readings.map((reading) => reading)
+  data.push(...readings);
 }
 
 function sorterTemperature(
@@ -71,10 +68,10 @@ function averageTemperature(readings: TemperatureReading[]): number {
 }
 
 function getTemperatureSummary(date: Date, city: string): void {
-  const filterData = getData(example).filter(
-    (data) =>
-      Date.parse(data.time.toString()) === Date.parse(date.toString()) &&
-      data.city === city,
+  const filterData = data.filter(
+    (el) =>
+      Date.parse(el.time.toString()) === Date.parse(date.toString()) &&
+      el.city === city,
   )
 
   if (filterData.length) {
@@ -102,10 +99,10 @@ function getTemperatureSummary(date: Date, city: string): void {
   null
 }
 
-getTemperatureSummary(dateTest, "California")
+processReadings(arrayData);
+getTemperatureSummary(dateTest, "California");
 
 exports.processReadings = processReadings
 exports.getTemperatureSummary = getTemperatureSummary
-exports.getData = getData
 exports.sorterTemperature = sorterTemperature
 exports.averageTemperature = averageTemperature
