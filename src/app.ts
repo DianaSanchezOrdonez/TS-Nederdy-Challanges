@@ -50,24 +50,26 @@ const arrayData = [
 const dateTest: Date = new Date("03/05/2021")
 const data: Array<TemperatureReading> = []
 
-function processReadings(readings: TemperatureReading[]): void {
+export function processReadings(readings: TemperatureReading[]): void {
   data.push(...readings)
 }
 
-function sorterTemperature(
+export function sorterTemperature(
   readings: TemperatureReading[],
 ): TemperatureReading[] {
   const sorterArray = readings.sort((a, b) => a.temperature - b.temperature)
-  return sorterArray.slice(0, 1).concat(sorterArray.slice(-1))
+  return sorterArray;
 }
 
-function averageTemperature(readings: TemperatureReading[]): number {
+console.log(sorterTemperature(arrayData));
+
+export function averageTemperature(readings: TemperatureReading[]): number {
   let total = 0
   readings.forEach((el) => (total += el.temperature))
   return total / readings.length
 }
 
-function getTemperatureSummary(date: Date, city: string): void {
+export function getTemperatureSummary(date: Date, city: string): TemperatureSummary | null {
   const filterData = data.filter(
     (el) =>
       Date.parse(el.time.toString()) === Date.parse(date.toString()) &&
@@ -96,13 +98,16 @@ function getTemperatureSummary(date: Date, city: string): void {
   `)
   }
 
-  null
+  return null;
 }
 
 processReadings(arrayData)
 getTemperatureSummary(dateTest, "California")
 
-exports.processReadings = processReadings
-exports.getTemperatureSummary = getTemperatureSummary
-exports.sorterTemperature = sorterTemperature
-exports.averageTemperature = averageTemperature
+// export function getTemperatureSummary(
+//   date: Date,
+//   city: string,
+// ): TemperatureSummary | null {
+//   //add here your code
+//   return null
+// }
