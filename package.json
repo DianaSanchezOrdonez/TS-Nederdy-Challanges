@@ -12,10 +12,6 @@
   "license": "ISC",
   "description": "Typescript challange",
   "dependencies": {
-    "@ravn-dev/prettier-config": "^1.0.0",
-    "date-fns": "^2.21.1",
-    "eslint": "^7.24.0",
-    "eslint-config-airbnb-base": "^14.2.1",
     "jest": "^26.6.3"
   },
   "devDependencies": {

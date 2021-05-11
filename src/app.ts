@@ -58,16 +58,14 @@ export function sorterTemperature(
   readings: TemperatureReading[],
 ): TemperatureReading[] {
   const sorterArray = readings.sort((a, b) => a.temperature - b.temperature)
-  return sorterArray;
+  return sorterArray.slice(0, 1).concat(sorterArray.slice(-1));
 }
-
-console.log(sorterTemperature(arrayData));
 
 export function averageTemperature(readings: TemperatureReading[]): number {
-  let total = 0
-  readings.forEach((el) => (total += el.temperature))
-  return total / readings.length
+  return readings.reduce((acc, curr) => acc + curr.temperature, 0) / readings.length;
 }
+
+console.log(averageTemperature(arrayData));
 
 export function getTemperatureSummary(date: Date, city: string): TemperatureSummary | null {
   const filterData = data.filter(
@@ -101,8 +99,8 @@ export function getTemperatureSummary(date: Date, city: string): TemperatureSumm
   return null;
 }
 
-processReadings(arrayData)
-getTemperatureSummary(dateTest, "California")
+// processReadings(arrayData)
+// getTemperatureSummary(dateTest, "California")
 
 // export function getTemperatureSummary(
 //   date: Date,
