@@ -12,6 +12,7 @@
   "license": "ISC",
   "description": "Typescript challange",
   "dependencies": {
+    "date-fns": "^2.21.3",
     "jest": "^26.6.3"
   },
   "devDependencies": {
